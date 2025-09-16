@@ -1,0 +1,27 @@
+<ng-container>
+  <h2>{{ tableName }}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Umur</th>
+        <th>Pekerjaan</th>
+        <th>DP (Rp)</th>
+        <th>Harga Motor (Rp)</th>
+        <th>Penghasilan (Rp)</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of data; track $index){
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.age }}</td>
+        <td>{{ item.occupation }}</td>
+        <td>{{ item.dp.toLocaleString("en-US") }}</td>
+        <td>{{ item.price.toLocaleString("en-US") }}</td>
+        <td>{{ item.salary.toLocaleString("en-US") }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</ng-container>

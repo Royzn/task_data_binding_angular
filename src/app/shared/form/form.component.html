@@ -1,0 +1,94 @@
+<div style="margin: 20px; display: flex; flex-direction: column">
+  <h3>Tambah Pengajuan</h3>
+  <form action="" (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="form-group">
+      <label for="name">Nama:</label>
+      <input type="text" formControlName="name"
+       [class.invalid]="form.get('name')?.invalid && form.get('name')?.touched"
+       />
+      <p
+        *ngIf="
+          form.get('name')?.hasError('required') && form.get('name')?.touched
+        "
+        class="error-text"
+      >
+        Nama harus diisi
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Umur:</label>
+      <input type="number" formControlName="age" />
+      <p
+        *ngIf="
+          form.get('age')?.hasError('required') && form.get('age')?.touched
+        "
+        class="error-text"
+      >
+        Umur harus diisi
+      </p>
+      <p
+        *ngIf="
+          (form.get('name')?.hasError('min') || form.get('name')?.hasError('max')) && form.get('name')?.touched
+        "
+        class="error-text"
+      >
+        Umur harus diantara 21 sampai 55
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="jobs">Pekerjaan:</label>
+      <input type="text" formControlName="occupation" />
+      <p
+        *ngIf="
+          form.get('occupation')?.hasError('required') &&
+          form.get('occupation')?.touched
+        "
+        class="error-text"
+      >
+        Pekerjaan harus diisi
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="dp">DP (Rp):</label>
+      <input type="number" formControlName="dp" />
+      <p
+        *ngIf="form.get('dp')?.hasError('required') && form.get('dp')?.touched"
+        class="error-text"
+      >
+        DP harus diisi
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Harga Motor (Rp):</label>
+      <input type="number" formControlName="price" />
+      <p
+        *ngIf="
+          form.get('price')?.hasError('required') && form.get('price')?.touched
+        "
+        class="error-text"
+      >
+        Harga Motor harus diisi
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Penghasilan (Rp):</label>
+      <input type="number" formControlName="salary" />
+      <p
+        *ngIf="
+          form.get('salary')?.hasError('required') &&
+          form.get('salary')?.touched
+        "
+        class="error-text"
+      >
+        Penghasilan harus diisi
+      </p>
+    </div>
+
+    <button type="submit" [disabled]="!form.valid">Tambahkan</button>
+  </form>
+</div>
