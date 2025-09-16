@@ -18,7 +18,7 @@
 
     <div class="form-group">
       <label for="age">Umur:</label>
-      <input type="number" formControlName="age" />
+      <input type="number" formControlName="age" [class.invalid]="form.get('age')?.invalid && form.get('age')?.touched" />
       <p
         *ngIf="
           form.get('age')?.hasError('required') && form.get('age')?.touched
@@ -29,7 +29,7 @@
       </p>
       <p
         *ngIf="
-          (form.get('name')?.hasError('min') || form.get('name')?.hasError('max')) && form.get('name')?.touched
+          (form.get('age')?.hasError('min') || form.get('age')?.hasError('max')) && form.get('age')?.touched
         "
         class="error-text"
       >
@@ -39,7 +39,7 @@
 
     <div class="form-group">
       <label for="jobs">Pekerjaan:</label>
-      <input type="text" formControlName="occupation" />
+      <input type="text" formControlName="occupation" [class.invalid]="form.get('occupation')?.invalid && form.get('occupation')?.touched"/>
       <p
         *ngIf="
           form.get('occupation')?.hasError('required') &&
@@ -53,7 +53,7 @@
 
     <div class="form-group">
       <label for="dp">DP (Rp):</label>
-      <input type="number" formControlName="dp" />
+      <input type="number" formControlName="dp" [class.invalid]="form.get('dp')?.invalid && form.get('dp')?.touched" />
       <p
         *ngIf="form.get('dp')?.hasError('required') && form.get('dp')?.touched"
         class="error-text"
@@ -64,7 +64,7 @@
 
     <div class="form-group">
       <label for="price">Harga Motor (Rp):</label>
-      <input type="number" formControlName="price" />
+      <input type="number" formControlName="price" [class.invalid]="form.get('price')?.invalid && form.get('price')?.touched"/>
       <p
         *ngIf="
           form.get('price')?.hasError('required') && form.get('price')?.touched
@@ -77,7 +77,7 @@
 
     <div class="form-group">
       <label for="salary">Penghasilan (Rp):</label>
-      <input type="number" formControlName="salary" />
+      <input type="number" formControlName="salary" [class.invalid]="form.get('salary')?.invalid && form.get('salary')?.touched"/>
       <p
         *ngIf="
           form.get('salary')?.hasError('required') &&

@@ -41,5 +41,6 @@ export class FormComponent {
     }
 
     this.dataSubmitted.emit(payload);
+    this.form.reset();
   }
 }
